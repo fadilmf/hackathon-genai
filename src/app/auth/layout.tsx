@@ -6,8 +6,8 @@ import BottomNavbar from "@/components/BottomNavbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sakho Education",
-  description: "Klontong",
+  title: "Gerbang Jabar",
+  description: "",
 };
 
 export default function RootLayout({

@@ -1,5 +1,6 @@
 "use client";
 
+import axiosClient from "@/utils/axiosClient";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
@@ -42,20 +43,32 @@ export default function UploadMaterialPage() {
 
     try {
       const formData = new FormData();
+
+      // Append each file with the key 'file' (matching the backend)
       files.forEach((file) => {
-        formData.append("files", file);
+        formData.append("file", file); // Use 'file' instead of 'pdf_file'
       });
 
-      formData.append("subject", selectedSubject); // Tambahkan pelajaran yang dipilih ke formData
-      formData.append("chapterName", chapterName); // Tambahkan nama bab ke formData
+      formData.append("course_name", selectedSubject); // Tambahkan pelajaran yang dipilih ke formData
+      formData.append("chapter_name", chapterName); // Tambahkan nama bab ke formData
+
+      // Log FormData entries
+      // for (let [key, value] of formData.entries()) {
+      //   if (value instanceof File) {
+      //     console.log(`${key}: ${value.name}`); // Log the file name
+      //   } else {
+      //     console.log(`${key}: ${value}`); // Log other values
+      //   }
+      // }
 
       // Send the files to an API route
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
+      const response = await axiosClient.post("/upload_pdf", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
 
-      if (response.ok) {
+      if (response.status === 201) {
         alert("Files uploaded successfully!");
         setFiles([]);
         setSelectedSubject(""); // Reset pelajaran yang dipilih
@@ -65,6 +78,9 @@ export default function UploadMaterialPage() {
       }
     } catch (error) {
       console.error("Error uploading files:", error);
+      alert(
+        "An error occurred while uploading the files. Please check the console for details."
+      );
     } finally {
       setUploading(false);
     }

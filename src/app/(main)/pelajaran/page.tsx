@@ -41,10 +41,24 @@ export default function PelajaranPage() {
       {/* Header */}
       <div className="bg-white rounded-lg p-4 shadow-md mb-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">Pelajaran</h1>
+          <h1 className="text-2xl font-bold">Hello, Elliot</h1>
+          <div className="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="/pizza.jpg"
+              alt="User Profile"
+              className="object-cover w-full h-full"
+            />
+          </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2 px-4">
+      {/* Header */}
+      {/* <div className="bg-white rounded-lg p-4 shadow-md mb-6">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Pelajaran</h1>
+        </div>
+      </div> */}
+      <h2 className="text-lg font-semibold mb-4">Mata Pelajaran</h2>
+      <div className="grid grid-cols-2 gap-2">
         {lessons.map((lesson, key) => (
           <Link
             href={`/pelajaran/${lesson.page}`}

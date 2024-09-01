@@ -15,11 +15,6 @@ export default function BottomNavbar() {
       label: "Home",
     },
     {
-      href: "/pelajaran",
-      icon: <LuBookCopy />,
-      label: "Pelajaran",
-    },
-    {
       href: "/profile",
       icon: <LuUser />,
       label: "Profile",

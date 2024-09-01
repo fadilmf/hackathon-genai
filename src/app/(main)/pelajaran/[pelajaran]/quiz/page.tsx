@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // Fungsi untuk mengambil data kuis dari API
@@ -29,6 +30,8 @@ export default function QuizPage() {
   const [quizData, setQuizData] = useState<any[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
+  const router = useRouter();
+
   // Ambil data kuis dari API ketika komponen dimuat
   useEffect(() => {
     const id = "1"; // Ganti dengan ID yang sesuai
@@ -43,6 +46,7 @@ export default function QuizPage() {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       alert("Kuis selesai!");
+      router.replace("/");
     }
   };
 

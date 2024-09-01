@@ -25,8 +25,10 @@ export default function MateriPage() {
       try {
         const response = await axiosClient.get("/chapter_list/1");
 
-        const data = response.data;
-        setChapterData(data.chapters); // Mengambil chapter pertama dari respons
+        const data = response.data.chapters[0];
+        console.log("ini respons ", response);
+        console.log(" ini data data daaklwejqweqwpe ", data);
+        setChapterData(data); // Mengambil chapter pertama dari respons
       } catch (error) {
         console.error("Error fetching chapter data:", error);
       } finally {
