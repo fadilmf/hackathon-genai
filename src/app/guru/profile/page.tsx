@@ -6,7 +6,7 @@ export default function ProfilePage() {
   const [user, setUser] = useState({
     name: "Sakho",
     email: "sakho@sakho.com",
-    // bio: "A passionate software developer who loves to code!",
+    bio: "A passionate software developer who loves to code!",
     profilePictureUrl: "https://via.placeholder.com/150",
   });
 
@@ -23,14 +23,14 @@ export default function ProfilePage() {
           <p className="text-gray-500 mb-4">{user.email}</p>
         </div>
         {/* Tombol Edit Profil */}
-        {/* <div className="mt-6 flex justify-center">
+        <div className="mt-6 flex justify-center">
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600"
             onClick={() => alert("Fitur Edit Profil Segera Hadir!")}
           >
             Edit Profile
           </button>
-        </div> */}
+        </div>
       </div>
     </div>
   );

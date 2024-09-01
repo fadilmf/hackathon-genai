@@ -6,21 +6,16 @@ import React from "react";
 import { LuBarChart3, LuBookCopy, LuHome, LuUser } from "react-icons/lu";
 // import { MdHistory, MdHome, MdPerson, MdStore } from "react-icons/md";
 
-export default function BottomNavbar() {
+export default function BottomNavbarGuru() {
   const pathname = usePathname();
   const navItems = [
     {
-      href: "/",
+      href: "/guru",
       icon: <LuHome />,
       label: "Home",
     },
     {
-      href: "/pelajaran",
-      icon: <LuBookCopy />,
-      label: "Pelajaran",
-    },
-    {
-      href: "/profile",
+      href: "/guru/profile",
       icon: <LuUser />,
       label: "Profile",
     },

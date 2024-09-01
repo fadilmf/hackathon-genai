@@ -6,27 +6,32 @@ const lessons = [
   {
     id: 1,
     name: "Matematika",
+    page: "/matematika",
     quiz: 20,
   },
   {
     id: 2,
-    name: "IPA",
+    name: "Biologi",
+    page: "biologi",
     quiz: 10,
   },
   {
     id: 3,
-    name: "Bahasa Indonesia",
-    quiz: 24,
-  },
-  {
-    id: 4,
     name: "Kimia",
+    page: "kimia",
     quiz: 13,
   },
   {
-    id: 5,
+    id: 4,
     name: "Fisika",
+    page: "fisika",
     quiz: 44,
+  },
+  {
+    id: 5,
+    name: "Sejarah",
+    page: "sejarah",
+    quiz: 2,
   },
 ];
 
@@ -42,7 +47,7 @@ export default function PelajaranPage() {
       <div className="grid grid-cols-2 gap-2 px-4">
         {lessons.map((lesson, key) => (
           <Link
-            href={`/pelajaran/${lesson.name.toLowerCase()}`}
+            href={`/pelajaran/${lesson.page}`}
             key={key}
             className="bg-blue-500 rounded-lg p-4 text-white flex-1 flex items-center justify-between gap-5"
           >
